@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: HelloCalculator API
+  description: API to calculate numbers. :D
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000
+    description: Development server
+
+paths:
+  /api/calculate:
+    post:
+      tags:
+        - Calculator
+      summary: "Evaluate a math expression"
+      description: "This endpoint evaluates a math expression."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                expression:
+                  type: "string"
+                  example: "2 + 2 * (3 - 1)"
+      responses:
+        '200':
+          description: "Successful evaluation"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  result:
+                    type: number
+                    example: 6
+        '400':
+          description: "Invalid expression"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid expression"
+
+components:
+  schemas:
+    CalculateRequest:
+      type: "object"
+      properties:
+        expression:
+          type: "string"
+          example: "2 + 2 * (3 - 1)"
+
+    CalculateResponse:
+      type: "object"
+      properties:
+        result:
+          type: number
+          example: 6
+
+    ErrorResponse:
+      type: "object"
+      properties:
+        error:
+          type: string
+          example: "Invalid expression"

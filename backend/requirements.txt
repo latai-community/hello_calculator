@@ -1,0 +1,6 @@
+flask
+flask-cors
+python-dotenv
+flasgger~=0.9.7.1
+gunicorn
+flask-swagger-ui
