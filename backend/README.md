@@ -60,4 +60,3 @@ backend/
 🚀 Made with Flask + Swagger 
 
 Powered by 🤖 and lots of ☕
- 
