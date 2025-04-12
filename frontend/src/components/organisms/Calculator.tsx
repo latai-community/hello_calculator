@@ -2,7 +2,7 @@
 import { useState } from "react"
 import CalculatorKeyboard from "../molecules/calculator-keyboard.tsx"
 import CalculatorDisplay from "../molecules/calculator-display.tsx"
-import {evaluateExpression} from "../../lib/api.ts";
+import { evaluateExpression } from "../../lib/api.ts";
 
 export default function Calculator() {
     const [display, setDisplay] = useState("0")
@@ -46,7 +46,6 @@ export default function Calculator() {
 
         if (showResult) {
             setExpression(result + op)
-            // llamdo a la api
             setDisplay("0")
             setShowResult(false)
             return
@@ -112,7 +111,6 @@ export default function Calculator() {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
             <div className=" p-8 bg-black rounded-3xl shadow-2xl overflow-hidden">
                 <CalculatorDisplay
                     display={display}
@@ -129,6 +127,5 @@ export default function Calculator() {
                     onEquals={handleEquals}
                 />
             </div>
-        </div>
     )
 }

@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  @apply w-full
+}
+
+.ibm-plex-mono-thin {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 100;
+}
+
+.ibm-plex-mono-regular {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+}
+
+.ibm-plex-mono-bold {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+}
+
+body {
+  @apply bg-[#222222]
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
