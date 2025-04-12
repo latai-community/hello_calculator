@@ -4,18 +4,17 @@ FROM python:3.11-slim
 # Crea y usa un directorio de trabajo
 WORKDIR /app
 
-# Copia solo lo necesario primero (para aprovechar la cache)
+# Copia el archivo requirements.txt primero (para aprovechar la cache)
 COPY requirements.txt .
 
 # Instala dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el resto del código
-COPY src/ ./src/
-COPY wsgi.py .
+COPY . .
 
 # Expone el puerto de Flask
 EXPOSE 5001
 
 # Comando para producción con Gunicorn
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5001", "wsgi:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5001", "main:app"]
