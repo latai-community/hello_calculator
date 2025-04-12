@@ -12,8 +12,6 @@ A simple Flask API to evaluate math expressions.
 Follow these steps to get the API running locally:
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/latai-community/hello_calculator.git
 cd hello_calculator/backend
 
 # 2. Create a virtual environment
