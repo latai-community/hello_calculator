@@ -14,14 +14,12 @@ OPERATORS = {
 
 
 def insert_implicit_multiplication(expr: str) -> str:
-    # Ej: 2(3+4) -> 2*(3+4), (3+2)(1+1) -> (3+2)*(1+1), (5)6 -> (5)*6
     expr = re.sub(r'(\d|\))\s*(\()', r'\1*\2', expr)
     expr = re.sub(r'(\))\s*(\d)', r'\1*\2', expr)
     return expr
 
 
 def is_valid_expression(expr: str) -> bool:
-    # Validación básica: no vacío y paréntesis balanceados
     return bool(expr.strip()) and expr.count('(') == expr.count(')')
 
 

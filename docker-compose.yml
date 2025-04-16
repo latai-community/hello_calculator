@@ -1,16 +1,16 @@
-version: '3.9'
-
 services:
   api:
-    build: ./backend
+    build:
+      context: ./backend/
+    container_name: calculator_api
     ports:
-      - "5001:5001"
-    volumes:
-      - ./src:/app/src
-      - ./wsgi.py:/app/wsgi.py
-    environment:
-      - FLASK_ENV=production
+      - "8081:8080"
+
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend/
+    container_name: calculator_front
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html
     ports:
-      - "8080:8080"
+      - "5173:5173"
